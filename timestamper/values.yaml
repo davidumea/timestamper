@@ -1,0 +1,9 @@
+postgres:
+  host: set-me
+  user: set-me
+  password: set-me
+  dbname: set-me
+
+image:
+  repository: set-me
+  tag: set-me
