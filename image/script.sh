@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 while :
 do
     # Insert current timestamp into timestamp table
