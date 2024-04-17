@@ -44,4 +44,4 @@ GRANT ALL ON TABLE timestamp_id_seq to "PGUSER";
 
 ## Application
 
-
+Modify values in the application manifest when deploying your application, as they are required for everything to run successfully.
