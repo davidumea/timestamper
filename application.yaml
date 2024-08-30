@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: git@github.com:davidumea/timestamper.git
+    repoURL: https://github.com/davidumea/timestamper.git
     targetRevision: HEAD
     path: timestamper
     helm:
@@ -21,4 +21,4 @@ spec:
           tag: set-me
   destination:
     server: https://kubernetes.default.svc
-    namespace: staging
+    namespace: production

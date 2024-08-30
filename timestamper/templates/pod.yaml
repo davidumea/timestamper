@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: timestamper
-  namespace: staging
+  namespace: production
 spec:
   containers:
   - env:
