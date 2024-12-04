@@ -34,10 +34,10 @@ kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "pull-se
 Prepare postgres
 
 ```sql
-CREATE DATABASE "dbname";
-GRANT ALL ON DATABASE test TO "PGUSER";
-\c "dbname"
-CREATE TABLE timestamp (id BIGSERIAL NOT NULL PRIMARY KEY, timestamp TIMESTAMP not null);
+CREATE DATABASE timestamper;
+GRANT ALL ON DATABASE timestamper TO "PGUSER";
+\c timestamper
+CREATE TABLE timestamp (id BIGSERIAL NOT NULL PRIMARY KEY, timestamp TIMESTAMP NOT NULL);
 GRANT ALL ON TABLE timestamp TO "PGUSER";
 GRANT ALL ON TABLE timestamp_id_seq to "PGUSER";
 ```
