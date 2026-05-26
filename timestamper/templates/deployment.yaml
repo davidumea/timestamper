@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: timestamper
+  name: timestamper
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: timestamper
+  template:
+    metadata:
+      labels:
+        app: timestamper
+    spec:
+      containers:
+      - env:
+        - name: PGDB
+          value: {{ .Values.postgres.dbname }}
+        - name: PGHOST
+          valueFrom:
+            secretKeyRef:
+              key: PGHOST
+              name: timestamper-postgresql-secret
+        - name: PGPASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: PGPASSWORD
+              name: timestamper-postgresql-secret
+        - name: PGUSER
+          valueFrom:
+            secretKeyRef:
+              key: PGUSER
+              name: timestamper-postgresql-secret
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: Always
+        name: timestamper
+        resources:
+          limits:
+            cpu: 20m
+            memory: 20Mi
+          requests:
+            cpu: 10m
+            memory: 10Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          privileged: false
+          runAsGroup: 1
+          runAsNonRoot: true
+          runAsUser: 1000

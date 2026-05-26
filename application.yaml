@@ -19,6 +19,7 @@ spec:
         image:
           repository: set-me
           tag: set-me
+        namespace: set-me
   destination:
     server: https://kubernetes.default.svc
     namespace: production

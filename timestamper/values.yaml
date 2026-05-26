@@ -7,3 +7,5 @@ postgres:
 image:
   repository: set-me
   tag: set-me
+
+namespace: set-me
